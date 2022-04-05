@@ -5,8 +5,225 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
+	<style>
+		*{padding: 0; margin: 0;}
+		#root{
+			width: 100vw;
+			height: max-content;
+			display: flex;
+			justify-content: center;
+			align-items:center;
+		}
+		/* *(애스터리스크) padding, margin과 #root의 크기 및 display 속성은 먼저 해두면 편한데,
+		이 html 양식 자체를 복사해놓고 마음껏 써두면 아주 편리해 보인다.
+		간단한 스타일 레포지토리 하나 미리 만들어 두자!  */
+		:root{
+		--lg:lightgray;
+		--dg:darkgray;
+		--g:gray;
+		}
+		#root>div{
+			width: 20vw;
+			height: 90vh;
+			background-color:var(--lg);
+			display: flex;
+			flex-direction: column;
+			/* border-radius: 2vw; */
+			/* border-radius를 주어 스마트폰 모양과 비슷하게. 해당 스타일은 나중에 처리하기. */
+			overflow: hidden;
+			/* list 항목이 viewport height 100을 넘어가고, 하단 메뉴바가 fixed 된 위치이기 때문에 overflow:hidden을 넣었다. */
+		}
+		header{
+			width:inherit;
+			background-color:var(--g);
+			height: 15vh;
+			display: flex;
+			align-items: center;
+			
+		}
+		header>div{
+			width:50%;
+			height:50%;
+			display: flex;
+			justify-content:space-around;
+			align-items: center;
+			background-color:var(--dg);
+		}
+		/* 1. position을 이용하는 방법-위치 좌표를 계속 조절을 해줘야되니까 불편하다.
+			2. 가상의 div을 하나 더 만들고, 가상의 div의 width값을 더 작게 만들어 flex-start로 위치 조정하기
+				-이 정도? 의 width값을 %단위로 넣어주면 대략적인 위치 조정이 조금더 용이해 보인다. */
+		header>div>div:nth-child(1){
+			width: 1vw;
+			height: 1vw;
+			border-radius: 3vw;
+			background-color: var(--g);
+		}
+		main{
+			width: 20vw;
+			height: 80vh;
+			display: flex;
+			justify-content: center;
+			background-color: var(--lg);
+			margin-top: 2vh;
+		}
+		main>div{
+			width:18vw;
+			background-color: var(--dg);
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		main>div>div:nth-child(1){
+			display: flex;
+			justify-content: center;
+			background-color: var(--g);
+			width: 50%;
+			margin-bottom: 1vh;
+		}
+		main>div>div:nth-child(2){
+			width: 18vw;
+			height: 20vh;
+			background-color: var(--g);
+			display: flex;
+			justify-content: center;
+			align-items: flex-end;
+			border-radius: 1vw;
+		}
+		main>div>div:nth-child(2)>div{
+			position: relative;
+			bottom: 2vh;
+			/* 해당 text를 어디에 배치할지 고민해보기 중앙? 위? 아래? 왼쪽상단? 우측 하단? */
+		}
+		main>div>div:nth-child(3){
+			margin-top: 1vh;
+			width: 10vw;
+			height: 5vh;
+			display:flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			background-color:var(--g);
+		}
+		main>div>div:nth-child(4){
+			margin-top: 3vh;
+			width: 10vw;
+			display: flex;
+			justify-content: center;
+		}
+		main>div>div:nth-child(5){
+			margin-top: 3vh;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+			/* margin을 주는 것보다 width값을 적절하게 설정한뒤 space-around방식으로 주면 margin을 구질구질하게 left, right 따로따로 안줘도 된다. */
+		}
+		main>div>div:nth-child(5)>div{
+			margin-bottom: 2vh;
+		}
+		
+		main>div>div:nth-child(5)>div>div{
+			display: flex;
+			justify-content:center;
+		}
+		
+		main>div>div:nth-child(5)>div>div:nth-child(1){
+			width: 8vw;
+			height: 10vh;
+			background-color: var(--g);
+			border-radius: 1vw;
+		}
+		menu{
+			width: 20vw;
+			height: 5vh;
+			background-color:black
+		}
+	</style>
 </head>
 <body>
-	111
+	<div id="root">
+		<div>
+			<!--header에는 프로필이 들어간다.  -->
+			<header>
+				<!-- header 안에서도 가상의 div을 만들어주어 layout 배치 속성을 더 주기로 하였다. -->
+				<div>
+					<!-- 프로필 사진 부분 -->
+					<div></div>
+					<div>
+						<!-- 프로필 text -->
+						<p>볶음밥 매니아</p>
+						<p>(User) 님!</p>
+					</div>
+				</div>
+			</header>
+			<!-- main에는 주 컨텐츠가 들어간다. -->
+			<main>
+				<!-- 마찬가지로 가상의 container div을 넣어준다. -->
+				<div>
+				<!-- main>div>div(1) -->
+					<div>
+						<p>전국 망한 요리자랑</p>
+					</div>
+				<!-- main>div(2) -->
+					<div>
+						<div>
+							<p>금주 대망(大亡)의 요리</p>
+							<!-- 대망에 한자를 넣을까 말까? -->
+						</div>
+					</div>
+				<!-- main>div(3) -->
+					<div>
+						<p>(User) 님의</p>
+						<p>items-0</p>
+					</div>
+					<!-- main>div(4) -->
+					<div>
+						<p>실시간 망한요리</p>
+					</div>
+					<!-- main>div(5) -->
+					<div>
+						<!-- 하나의 div을 스타일링 해준다음 div을 5번 더 만들어주자. -->
+						<div>
+							<div></div>
+							<div><p>itmes-1</p></div>
+						</div>
+						<div>
+							<div></div>
+							<div><p>itmes-2</p></div>
+						</div>
+						<div>
+							<div></div>
+							<div><p>itmes-3</p></div>
+						</div>
+						<div>
+							<div></div>
+							<div><p>itmes-4</p></div>
+						</div>
+						<div>
+							<div></div>
+							<div><p>itmes-5</p></div>
+						</div>
+						<div>
+							<div></div>
+							<div><p>itmes-6</p></div>
+						</div>
+					</div>
+				</div>
+			</main>
+			<!-- menu에는 하단 메뉴가 들어간다. -->
+			<menu>
+				<!-- 아이콘들을 담아줄 container div 생성 -->
+				<div>
+					<!-- text가 안에 들어가는 요소가 아닌 아이콘 요소이기 때문에
+						(근데 font-awesome에서 아이콘이든 뭐든 넣긴 해야됨) -->
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</menu>
+		</div>
+	</div>
 </body>
 </html>
