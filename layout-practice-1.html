@@ -24,7 +24,7 @@
 		}
 		#root>div{
 			width: 20vw;
-			height: 90vh;
+			height: 100vh;
 			background-color:var(--lg);
 			display: flex;
 			flex-direction: column;
@@ -53,8 +53,8 @@
 			2. 가상의 div을 하나 더 만들고, 가상의 div의 width값을 더 작게 만들어 flex-start로 위치 조정하기
 				-이 정도? 의 width값을 %단위로 넣어주면 대략적인 위치 조정이 조금더 용이해 보인다. */
 		header>div>div:nth-child(1){
-			width: 1vw;
-			height: 1vw;
+			width: 2vw;
+			height: 2vw;
 			border-radius: 3vw;
 			background-color: var(--g);
 		}
@@ -112,7 +112,7 @@
 			justify-content: center;
 		}
 		main>div>div:nth-child(5){
-			margin-top: 3vh;
+			margin-top: 1vh;
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: space-around;
@@ -134,10 +134,29 @@
 			border-radius: 1vw;
 		}
 		menu{
+			position: fixed;
+			top: 95vh;
 			width: 20vw;
 			height: 5vh;
-			background-color:black
+			background-color:black;
+			display: flex;
+			justify-content: center;
 		}
+		menu>div{
+			width: 18vw;
+			height: inherit;
+			background-color: var(--g);
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+		}
+		menu>div>div{
+			width: 1.5vw;
+			height: 1.5vw;
+			border-radius: 0.5vw;
+			background-color: var(--lg);
+		}
+		
 	</style>
 </head>
 <body>
