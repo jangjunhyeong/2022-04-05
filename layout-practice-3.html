@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		.container-c{
+			background-color:var(--g);
+		}
+		.container-c>div:nth-child(1){
+			width: inherit;
+			height: 30vh;
+		}
+		.container-c>div:nth-child(2){
+			width: inherit;
+			height: 10vh;
+			background-color:var(--lg);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.container-c>div:nth-child(3){
+			width: inherit;
+			height: 5vh;
+			background-color:var(--dag);
+		}
+
+	</style>
+</head>
+<body>
+	<div id="root-1">
+		<div class="container-c">
+			<div></div>
+			<div><h2>닉네임 등록</h2></div>
+			<div></div>
+			<div>
+				<p>16자 이내 (특수문자 불가)</p>
+				<div></div>
+			</div>
+			<div>
+				<p>중복 확인</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+<!-- 이번에는 외부 스타일시트를 만들어서 스타일링을 작업했기 때문에
+조금 더 깔끔한 코드를 만들 수 있었다. -->
